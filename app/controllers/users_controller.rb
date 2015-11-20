@@ -20,6 +20,12 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
+  def destroy
+    @user = User.find_by(id: params[:id])
+    @user.destroy
+    redirect_to action: 'home', controller: 'site'
+  end
+
   private
 
   def user_params
